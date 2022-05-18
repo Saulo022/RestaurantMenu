@@ -15,6 +15,7 @@ public class SectionsModel implements SectionsContract.Model {
 
 
   private MenuItems data;
+  private MenuItem menu;
 
   public SectionsModel() {
 
@@ -65,6 +66,13 @@ public class SectionsModel implements SectionsContract.Model {
   public MenuItems getStoredData() {
     // Log.e(TAG, "getStoredData()");
     return data;
+  }
+
+  @Override
+  public MenuItem getStoredData(MenuItem menuItem) {
+    // Log.e(TAG, "getStoredData()");
+    menu = menuItem;
+    return menu;
   }
 
 }

@@ -14,11 +14,10 @@ public class ItemsViewModel {
   public MenuItem menu1;
   public MenuItem menu2;
 
+  public Integer precioEleccion;
+  public String  eleccion;
 
-  public String plato1;
-  public String plato2;
-  public Integer precio1;
-  public Integer precio2;
+  public Integer botonPulsado;
 
 
 }

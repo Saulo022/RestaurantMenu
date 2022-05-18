@@ -5,6 +5,7 @@ import android.util.Log;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.restaurantmenu.app.AppMediator;
+import es.ulpgc.eite.restaurantmenu.app.ItemsToSectionsState;
 import es.ulpgc.eite.restaurantmenu.app.SectionsToItemsState;
 
 /**
@@ -69,6 +70,7 @@ public class ItemsPresenter implements ItemsContract.Presenter {
     Log.e(TAG, "onBackPressed()");
 
     // TODO: include some code if is necessary
+    view.get().navigateToPreviousScreen();
   }
 
   @Override
@@ -91,6 +93,11 @@ public class ItemsPresenter implements ItemsContract.Presenter {
     Log.e(TAG, "onFirstBtnClicked()");
 
     // TODO: include some code if is necessary
+    ItemsToSectionsState newState = new ItemsToSectionsState();
+    newState.botonPulsado = 1;
+    newState.itemSection = state.itemsSection.get(0);
+    passStateToPreviousScreen(newState);
+    onBackPressed();
   }
 
   @Override
@@ -98,10 +105,19 @@ public class ItemsPresenter implements ItemsContract.Presenter {
     Log.e(TAG, "onSecondBtnClicked()");
 
     // TODO: include some code if is necessary
+    ItemsToSectionsState newState = new ItemsToSectionsState();
+    newState.botonPulsado = 2;
+    newState.itemSection = state.itemsSection.get(1);
+    passStateToPreviousScreen(newState);
+    onBackPressed();
   }
 
   private SectionsToItemsState getStateFromPreviousScreen() {
     return mediator.getSectionsToItemsState();
+  }
+
+  private void passStateToPreviousScreen(ItemsToSectionsState state) {
+    mediator.setItemsToSectionsState(state);
   }
 
 

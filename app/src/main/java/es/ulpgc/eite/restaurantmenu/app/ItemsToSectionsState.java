@@ -8,4 +8,5 @@ import es.ulpgc.eite.restaurantmenu.data.MenuItem;
 public class ItemsToSectionsState {
 
   public MenuItem itemSection;
+  public Integer botonPulsado;
 }

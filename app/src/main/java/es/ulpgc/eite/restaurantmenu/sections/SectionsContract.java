@@ -2,6 +2,7 @@ package es.ulpgc.eite.restaurantmenu.sections;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.restaurantmenu.data.MenuItem;
 import es.ulpgc.eite.restaurantmenu.data.MenuItems;
 
 /**
@@ -31,6 +32,7 @@ public interface SectionsContract {
 
   interface Model {
     MenuItems getStoredData();
+    MenuItem getStoredData(MenuItem menuItem);
   }
 
 }

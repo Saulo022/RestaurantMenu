@@ -5,6 +5,7 @@ import android.util.Log;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.restaurantmenu.app.AppMediator;
+import es.ulpgc.eite.restaurantmenu.app.ItemsToSectionsState;
 import es.ulpgc.eite.restaurantmenu.app.SectionsToItemsState;
 import es.ulpgc.eite.restaurantmenu.data.MenuItem;
 import es.ulpgc.eite.restaurantmenu.data.MenuItems;
@@ -31,7 +32,9 @@ public class SectionsPresenter implements SectionsContract.Presenter {
     Log.e(TAG, "onStart()");
 
     // TODO: include some code if is necessary
-
+    if (state == null) {
+      state = new SectionsState();
+    }
   }
 
   @Override
@@ -47,6 +50,21 @@ public class SectionsPresenter implements SectionsContract.Presenter {
     Log.e(TAG, "onResume()");
 
     // TODO: include some code if is necessary
+    ItemsToSectionsState savedState = getStateFromNextScreen();
+    if (savedState != null){
+      if(savedState.botonPulsado == 1){
+        if (savedState.itemSection.itemName=="First Starter"){
+          Log.e(TAG, "onStart()"+savedState.itemSection.itemName);
+          state.itemStarters = model.getStoredData(savedState.itemSection);
+        } else if (savedState.itemSection.itemName=="First Main Course"){
+          state.itemMainCourses = model.getStoredData(savedState.itemSection);
+        } else if (savedState.itemSection.itemName=="First Dessert"){
+          state.itemDesserts = model.getStoredData(savedState.itemSection);
+        }
+      }
+
+    }
+    view.get().onDataUpdated(state);
   }
 
   @Override
@@ -172,6 +190,10 @@ public class SectionsPresenter implements SectionsContract.Presenter {
 
   private void passStateToNextScreen(SectionsToItemsState state) {
     mediator.setSectionsToItemsState(state);
+  }
+
+  private ItemsToSectionsState getStateFromNextScreen() {
+    return mediator.getItemsToSectionsState();
   }
 
   @Override
