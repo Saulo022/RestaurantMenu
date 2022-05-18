@@ -55,11 +55,15 @@ public class SectionsPresenter implements SectionsContract.Presenter {
       if(savedState.botonPulsado == 1){
         if (savedState.itemSection.itemName=="First Starter"){
           Log.e(TAG, "onStart()"+savedState.itemSection.itemName);
+          state.priceMenu1 =10;
+          //Log.e(TAG, "onStart()"+savedState.itemSection.itemPrice);
           state.itemStarters = model.getStoredData(savedState.itemSection);
         } else if (savedState.itemSection.itemName=="First Main Course"){
           state.itemMainCourses = model.getStoredData(savedState.itemSection);
+          state.priceMenu2 = 15;
         } else if (savedState.itemSection.itemName=="First Dessert"){
           state.itemDesserts = model.getStoredData(savedState.itemSection);
+          state.priceMenu3 = 7;
         }
       }
       if(savedState.botonPulsado == 2){
@@ -67,12 +71,15 @@ public class SectionsPresenter implements SectionsContract.Presenter {
           Log.e(TAG, "onStart()"+savedState.itemSection.itemName);
           state.itemStarters = model.getStoredData(savedState.itemSection);
           state.priceMenu1 = state.itemStarters.itemPrice;
+          state.priceMenu1 = 9;
         } else if (savedState.itemSection.itemName=="Second Main Course"){
           state.itemMainCourses = model.getStoredData(savedState.itemSection);
           state.priceMenu2 = state.itemMainCourses.itemPrice;
+          state.priceMenu2 = 18;
         } else if (savedState.itemSection.itemName=="Second Dessert"){
           state.itemDesserts = model.getStoredData(savedState.itemSection);
           state.priceMenu3 = state.itemDesserts.itemPrice;
+          state.priceMenu3 = 8;
         }
       }
       //state.priceMenu1 = model.obternetPrecio1(state.itemStarters);
@@ -85,6 +92,7 @@ public class SectionsPresenter implements SectionsContract.Presenter {
     model.calcularPrecio(state.priceMenu1, state.priceMenu2, state.priceMenu3);
     state.priceMenu = model.getP();
     Log.e(TAG, "onResume()1"+state.priceMenu);
+    //Log.e(TAG, "onResume()1"+state.priceMenu1);
     Log.e(TAG, "onResume()2");
     view.get().onDataUpdated(state);
   }
