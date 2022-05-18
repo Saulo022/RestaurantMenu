@@ -11,6 +11,10 @@ public class ItemsViewModel {
 
   // put the view state here
   public List<MenuItem> itemsSection;
+  public MenuItem menu1;
+  public MenuItem menu2;
+
+
   public String plato1;
   public String plato2;
   public Integer precio1;

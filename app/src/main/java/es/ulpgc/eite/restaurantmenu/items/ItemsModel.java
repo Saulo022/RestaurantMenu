@@ -15,6 +15,8 @@ public class ItemsModel implements ItemsContract.Model {
   public static String TAG = "RestaurantMenu.ItemsModel";
 
   private List<MenuItem> data;
+  private MenuItem m1;
+  private MenuItem m2;
 
 
   public ItemsModel() {
@@ -27,9 +29,31 @@ public class ItemsModel implements ItemsContract.Model {
     return data;
   }
   @Override
-  public void onDataFromPreviousScreen(List<MenuItem> itemsSection) {
+  public MenuItem getStoredData1() {
+    // Log.e(TAG, "getStoredData()");
+    return m1;
+  }
+  @Override
+  public MenuItem getStoredData2() {
+    // Log.e(TAG, "getStoredData()");
+    return m2;
+  }
+
+  @Override
+  public List<MenuItem> añadirMenus(List<MenuItem> lista){
+    data.add(m1);
+    data.add(m2);
+
+    lista = data;
+
+    return lista;
+  }
+
+  @Override
+  public void onDataFromPreviousScreen(MenuItem itemsSection1,MenuItem itemsSection2) {
     Log.e(TAG, "onDataFromPreviousScreen()");
-    data = itemsSection;
+    m1 = itemsSection1;
+    m2 = itemsSection2;
   }
 
 }

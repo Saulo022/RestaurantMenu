@@ -27,7 +27,7 @@ public class ItemsPresenter implements ItemsContract.Presenter {
   @Override
   public void onStart() {
     Log.e(TAG, "onStart()");
-    /*
+
     // TODO: include some code if is necessary
     if (state == null) {
       state = new ItemsState();
@@ -35,8 +35,8 @@ public class ItemsPresenter implements ItemsContract.Presenter {
     SectionsToItemsState savedState = getStateFromPreviousScreen();
     if (savedState != null){
 
-        model.onDataFromPreviousScreen(savedState.itemsSection);
-    }*/
+        model.onDataFromPreviousScreen(savedState.menuItem1,savedState.menuItem2);
+    }
 
   }
 
@@ -52,10 +52,16 @@ public class ItemsPresenter implements ItemsContract.Presenter {
     Log.e(TAG, "onResume()");
 
     // TODO: include some code if is necessary
-    /*
-      state.itemsSection = model.getStoredData();
+
+      state.menu1 = model.getStoredData1();
+      state.menu2 = model.getStoredData2();
+
+    Log.e(TAG, "onResume()1");
+      state.itemsSection = model.añadirMenus(state.itemsSection);
+      //state.itemsSection.add(state.menu2);
+    Log.e(TAG, "onResume()2");
       view.get().onDataUpdated(state);
-  */
+
   }
 
   @Override

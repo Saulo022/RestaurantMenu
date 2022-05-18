@@ -75,25 +75,6 @@ public class SectionsPresenter implements SectionsContract.Presenter {
     Log.e(TAG, "onStartersBtnClicked()");
 
     // TODO: include some code if is necessary
-    MenuItems desserts = new MenuItems();
-    MenuItem dessert1 = new MenuItem();
-    MenuItem dessert2 = new MenuItem();
-
-    dessert1.itemName = "First Dessert";
-    dessert1.itemPrice = 7;
-
-    dessert2.itemName = "Second Dessert";
-    dessert2.itemPrice= 8;
-
-    desserts.itemsDesserts.add(dessert1);
-    desserts.itemsDesserts.add(dessert2);
-    /*
-    SectionsToItemsState newState = new SectionsToItemsState();
-    newState.itemsSection = desserts.itemsDesserts;
-
-    passStateToNextScreen(newState);
-
-    view.get().navigateToNextScreen();*/
   }
 
   @Override
@@ -108,6 +89,33 @@ public class SectionsPresenter implements SectionsContract.Presenter {
     Log.e(TAG, "onDessertsBtnClicked()");
 
     // TODO: include some code if is necessary
+    //MenuItems desserts = new MenuItems();
+    MenuItem dessert1 = new MenuItem();
+    MenuItem dessert2 = new MenuItem();
+    Log.e(TAG, "onStartersBtnClicked()1");
+
+    dessert1.itemName = "First Dessert";
+    dessert1.itemPrice = 7;
+
+    dessert2.itemName = "Second Dessert";
+    dessert2.itemPrice= 8;
+
+    Log.e(TAG, "onStartersBtnClicked()3");
+    //desserts.itemsDesserts.add(dessert1);
+    //desserts.itemsDesserts.add(dessert2);
+    state.menuItemD1 = dessert1;
+    state.menuItemD2 = dessert2;
+
+    Log.e(TAG, "onStartersBtnClicked()4");
+    SectionsToItemsState newState = new SectionsToItemsState();
+    //newState.itemsSection = desserts.itemsDesserts;
+    newState.menuItem1=state.menuItemD1;
+    newState.menuItem2=state.menuItemD2;
+
+    Log.e(TAG, "onStartersBtnClicked()5");
+    passStateToNextScreen(newState);
+    Log.e(TAG, "onStartersBtnClicked()6");
+    view.get().navigateToNextScreen();
   }
 
   private void passStateToNextScreen(SectionsToItemsState state) {

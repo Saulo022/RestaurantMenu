@@ -9,5 +9,9 @@ import es.ulpgc.eite.restaurantmenu.data.MenuItem;
  */
 public class SectionsToItemsState {
 
-  public List<MenuItem> itemsSection;
+  //public List<MenuItem> itemsSection;
+
+  public MenuItem menuItem1;
+  public MenuItem menuItem2;
+
 }

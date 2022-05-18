@@ -32,7 +32,10 @@ public interface ItemsContract {
 
   interface Model {
     List<MenuItem> getStoredData();
-    void onDataFromPreviousScreen(List<MenuItem> itemsSection);
+    void onDataFromPreviousScreen(MenuItem itemsSection1,MenuItem itemsSection2);
+    MenuItem getStoredData1();
+    MenuItem getStoredData2();
+    List<MenuItem> añadirMenus(List<MenuItem> lista);
   }
 
 }
