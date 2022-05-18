@@ -13,6 +13,12 @@ public class SectionsViewModel {
   public MenuItem itemMainCourses;
   public MenuItem itemDesserts;
 
+  public MenuItem itemStarters1;
+  public MenuItem itemStarters2;
+
+  public MenuItem itemMainCourses1;
+  public MenuItem itemMainCourses2;
+
   public MenuItem menuItemD1;
   public MenuItem menuItemD2;
 

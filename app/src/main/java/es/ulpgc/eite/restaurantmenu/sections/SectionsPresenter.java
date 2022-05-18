@@ -75,6 +75,32 @@ public class SectionsPresenter implements SectionsContract.Presenter {
     Log.e(TAG, "onStartersBtnClicked()");
 
     // TODO: include some code if is necessary
+    MenuItem starter1 = new MenuItem();
+    MenuItem starter2 = new MenuItem();
+    Log.e(TAG, "onStartersBtnClicked()1");
+
+    starter1.itemName = "First Starter";
+    starter1.itemPrice = 10;
+
+    starter2.itemName = "Second Starter";
+    starter2.itemPrice= 9;
+
+    Log.e(TAG, "onStartersBtnClicked()3");
+    //desserts.itemsDesserts.add(dessert1);
+    //desserts.itemsDesserts.add(dessert2);
+    state.itemStarters1 = starter1;
+    state.itemStarters2 = starter2;
+
+    Log.e(TAG, "onStartersBtnClicked()4");
+    SectionsToItemsState newState = new SectionsToItemsState();
+    //newState.itemsSection = desserts.itemsDesserts;
+    newState.menuItem1=state.itemStarters1;
+    newState.menuItem2=state.itemStarters2;
+
+    Log.e(TAG, "onStartersBtnClicked()5");
+    passStateToNextScreen(newState);
+    Log.e(TAG, "onStartersBtnClicked()6");
+    view.get().navigateToNextScreen();
   }
 
   @Override
@@ -82,6 +108,32 @@ public class SectionsPresenter implements SectionsContract.Presenter {
     Log.e(TAG, "onMainCoursesBtnClicked()");
 
     // TODO: include some code if is necessary
+    MenuItem mainCourse1 = new MenuItem();
+    MenuItem mainCourse2 = new MenuItem();
+    Log.e(TAG, "onMainCoursesBtnClicked()1");
+
+    mainCourse1.itemName = "First Main Course";
+    mainCourse1.itemPrice = 15;
+
+    mainCourse2.itemName = "Second Main Course";
+    mainCourse2.itemPrice= 18;
+
+    Log.e(TAG, "onMainCoursesBtnClicked()3");
+    //desserts.itemsDesserts.add(dessert1);
+    //desserts.itemsDesserts.add(dessert2);
+    state.itemMainCourses1 = mainCourse1;
+    state.itemMainCourses2 = mainCourse2;
+
+    Log.e(TAG, "onMainCoursesBtnClicked()4");
+    SectionsToItemsState newState = new SectionsToItemsState();
+    //newState.itemsSection = desserts.itemsDesserts;
+    newState.menuItem1=state.itemMainCourses1;
+    newState.menuItem2=state.itemMainCourses2;
+
+    Log.e(TAG, "onMainCoursesBtnClicked()5");
+    passStateToNextScreen(newState);
+    Log.e(TAG, "onMainCoursesBtnClicked()6");
+    view.get().navigateToNextScreen();
   }
 
   @Override
@@ -92,7 +144,7 @@ public class SectionsPresenter implements SectionsContract.Presenter {
     //MenuItems desserts = new MenuItems();
     MenuItem dessert1 = new MenuItem();
     MenuItem dessert2 = new MenuItem();
-    Log.e(TAG, "onStartersBtnClicked()1");
+    Log.e(TAG, "onDessertssBtnClicked()1");
 
     dessert1.itemName = "First Dessert";
     dessert1.itemPrice = 7;
@@ -100,21 +152,21 @@ public class SectionsPresenter implements SectionsContract.Presenter {
     dessert2.itemName = "Second Dessert";
     dessert2.itemPrice= 8;
 
-    Log.e(TAG, "onStartersBtnClicked()3");
+    Log.e(TAG, "onDessertsBtnClicked()3");
     //desserts.itemsDesserts.add(dessert1);
     //desserts.itemsDesserts.add(dessert2);
     state.menuItemD1 = dessert1;
     state.menuItemD2 = dessert2;
 
-    Log.e(TAG, "onStartersBtnClicked()4");
+    Log.e(TAG, "onDessertssBtnClicked()4");
     SectionsToItemsState newState = new SectionsToItemsState();
     //newState.itemsSection = desserts.itemsDesserts;
     newState.menuItem1=state.menuItemD1;
     newState.menuItem2=state.menuItemD2;
 
-    Log.e(TAG, "onStartersBtnClicked()5");
+    Log.e(TAG, "onDessertssBtnClicked()5");
     passStateToNextScreen(newState);
-    Log.e(TAG, "onStartersBtnClicked()6");
+    Log.e(TAG, "onDessertsBtnClicked()6");
     view.get().navigateToNextScreen();
   }
 
