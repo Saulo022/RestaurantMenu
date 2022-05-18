@@ -33,6 +33,11 @@ public interface SectionsContract {
   interface Model {
     MenuItems getStoredData();
     MenuItem getStoredData(MenuItem menuItem);
+    void calcularPrecio(Integer c1,Integer c2,Integer c3);
+    Integer obternetPrecio1(MenuItem menuItem);
+    Integer obternetPrecio2(MenuItem menuItem);
+    Integer obternetPrecio3(MenuItem menuItem);
+    Integer getP();
   }
 
 }

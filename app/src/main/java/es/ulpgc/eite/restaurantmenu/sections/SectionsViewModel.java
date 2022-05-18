@@ -24,5 +24,9 @@ public class SectionsViewModel {
 
   MenuItems desserts = new MenuItems();
 
+  public Integer priceMenu1 = 0;
+  public Integer priceMenu2 = 0;
+  public Integer priceMenu3 = 0;
+
   public Integer priceMenu = 0;
 }

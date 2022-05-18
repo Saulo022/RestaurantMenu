@@ -62,8 +62,30 @@ public class SectionsPresenter implements SectionsContract.Presenter {
           state.itemDesserts = model.getStoredData(savedState.itemSection);
         }
       }
-
+      if(savedState.botonPulsado == 2){
+        if (savedState.itemSection.itemName=="Second Starter"){
+          Log.e(TAG, "onStart()"+savedState.itemSection.itemName);
+          state.itemStarters = model.getStoredData(savedState.itemSection);
+          state.priceMenu1 = state.itemStarters.itemPrice;
+        } else if (savedState.itemSection.itemName=="Second Main Course"){
+          state.itemMainCourses = model.getStoredData(savedState.itemSection);
+          state.priceMenu2 = state.itemMainCourses.itemPrice;
+        } else if (savedState.itemSection.itemName=="Second Dessert"){
+          state.itemDesserts = model.getStoredData(savedState.itemSection);
+          state.priceMenu3 = state.itemDesserts.itemPrice;
+        }
+      }
+      //state.priceMenu1 = model.obternetPrecio1(state.itemStarters);
+      //state.priceMenu2 = model.obternetPrecio2(state.itemDesserts);
+      //state.priceMenu3 = model.obternetPrecio3(state.itemMainCourses);
     }
+    Log.e(TAG, "onResume()1");
+    //state.priceMenu = model.calcularPrecio(state.itemStarters.itemPrice,state.itemDesserts.itemPrice,state.itemMainCourses.itemPrice);
+
+    model.calcularPrecio(state.priceMenu1, state.priceMenu2, state.priceMenu3);
+    state.priceMenu = model.getP();
+    Log.e(TAG, "onResume()1"+state.priceMenu);
+    Log.e(TAG, "onResume()2");
     view.get().onDataUpdated(state);
   }
 

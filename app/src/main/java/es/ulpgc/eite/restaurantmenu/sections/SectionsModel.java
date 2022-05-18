@@ -16,6 +16,10 @@ public class SectionsModel implements SectionsContract.Model {
 
   private MenuItems data;
   private MenuItem menu;
+  private Integer total=0;
+  private Integer tp1=0;
+  private Integer tp2=0;
+  private Integer tp3=0;
 
   public SectionsModel() {
 
@@ -73,6 +77,32 @@ public class SectionsModel implements SectionsContract.Model {
     // Log.e(TAG, "getStoredData()");
     menu = menuItem;
     return menu;
+  }
+
+  @Override
+  public void calcularPrecio(Integer c1,Integer c2,Integer c3){
+    total = c1 + c2 + c3;
+  }
+
+  @Override
+  public Integer getP(){
+    return total;
+  }
+
+  @Override
+  public Integer obternetPrecio1(MenuItem menuItem){
+    tp1 = menuItem.itemPrice;
+    return tp1;
+  }
+  @Override
+  public Integer obternetPrecio2(MenuItem menuItem){
+    tp2 = menuItem.itemPrice;
+    return tp2;
+  }
+  @Override
+  public Integer obternetPrecio3(MenuItem menuItem){
+    tp3 = menuItem.itemPrice;
+    return tp3;
   }
 
 }
